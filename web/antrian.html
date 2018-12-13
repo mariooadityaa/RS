@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <title>Teknik Informatika</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/beyond_the_mountains-webfont.css" type="text/css"/>
+
+        <!-- Stylesheets -->
+        <link href="plugin-frameworks/bootstrap.min.css" rel="stylesheet">
+        <link href="plugin-frameworks/swiper.css" rel="stylesheet">
+        <link href="fonts/ionicons.css" rel="stylesheet">
+        <link href="common/styles.css" rel="stylesheet">
+
+<style>.main-menu {
+  position: absolute;
+  left: 27px;
+  top: 80px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  transition: left 0.3s ease,
+              box-shadow 0.3s ease;
+  z-index: 999;
+  overflow: hidden;
+}</style>
+</head>
+<body>
+
+<header>
+        <div class="container">
+                <a href="index.html"><img src="images/logo-white.png" alt="Logo"></a><br/><a href="index.html"></a><br/>
+
+                <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+
+                <ul class="main-menu font-mountainsre" id="main-menu">
+                        <li><a href="logintambahdokter.html">TAMBAH DOKTOR</a></li>
+                        <li><a href="logintambahklinik.html">TAMBAH KLINIK</a></li>
+                        <li><a href="logintambahpasien.html">PENDAFTARAN PASIEN</a></li>
+                        <li><a href="loginpendaftaranantrian.html">PENDAFTARAN ANTRIAN</a></li>
+                        <li><a href="caripasien.html">CARI PASIEN</a></li>
+                        <li><a href="antrian.html">LIST ANTRIAN</a></li>
+                        <li><a href="dokter.html">DOKTER SPESIALIS</a></li>
+                        <li><a href="klinik.html">KLINIK</a></li>
+                        <li><a href="tentang.html">TENTANG KAMI</a></li>
+                </ul>
+                <div class="clearfix"></div>
+        </div><!-- container -->
+</header>
+
+<section class="bg-7 h-500x main-slider pos-relative">
+        <div class="triangle-up pos-bottom"></div>
+        <div class="container h-100">
+                <div class="dplay-tbl">
+                        <div class="dplay-tbl-cell center-text color-white pt-90">
+                                <h5><b>Informatika Health</b></h5>
+                                <h3 class="mt-30 mb-15">List   Antrian</h3>
+                        </div><!-- dplay-tbl-cell -->
+                </div><!-- dplay-tbl -->
+        </div><!-- container -->
+</section>
+
+
+<section class="story-area left-text center-sm-text">
+        <div class="container">
+             <center>
+<div id="outtable">
+                                <button type="button" onclick="loadDoc()" id="myselect">Cari</button>
+                                <div id="scrolltable"> 
+                                    <p id="demo"></p>
+
+                                    <script>
+                                        function loadDoc() {
+
+                                            var xmlhttp = new XMLHttpRequest();
+                                            var url = "http://202.94.83.190:8080/165314036RS/webresources/Antrian";
+
+                                            xmlhttp.onreadystatechange = function () {
+                                                if (this.readyState == 4 && this.status == 200) {
+                                                    myFunction(this.responseText);
+                                                }
+                                            }
+                                            xmlhttp.open("GET", url, true);
+                                            xmlhttp.send();
+
+                                            function myFunction(response) {
+                                                var arr = JSON.parse(response);
+                                                var i;
+                                                var out = "<table border='1'> <tr><td>Id Antrian</td><td>NoRM</td><td>Nama Pasien</td><td>Tanggal Periksa</td><td>Nama Klinik</td><td>Alamat</td></tr>";
+
+                                                for (i = 0; i < arr.length; i++) {
+                                                    out += "<tr><td>" +
+                                                            arr[i].id +
+                                                            "</td><td>" +
+                                                            arr[i].noRm +
+                                                            "</td><td>" + arr[i].nama + "</td><td>" + arr[i].tanggal + "</td><td>" + arr[i].namaKlinik + "</td><td>" + arr[i].alamat +"</tr>";
+                                                }
+                                                out += "</table>";
+                                                document.getElementById("demo").innerHTML = out;
+                                            }
+                                        }
+
+                                    </script>
+                                </div>
+                            </div>
+
+             </center>
+        </div><!-- container -->
+</section>
+
+<!-- SCIPTS -->
+<script src="plugin-frameworks/jquery-3.2.1.min.js"></script>
+<script src="plugin-frameworks/bootstrap.min.js"></script>
+<script src="plugin-frameworks/swiper.js"></script>
+<script src="common/scripts.js"></script>
+
+</body>
+</html>

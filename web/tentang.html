@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Informatika Health</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/beyond_the_mountains-webfont.css" type="text/css"/>
+
+        <!-- Stylesheets -->
+        <link href="plugin-frameworks/bootstrap.min.css" rel="stylesheet">
+        <link href="plugin-frameworks/swiper.css" rel="stylesheet">
+        <link href="fonts/ionicons.css" rel="stylesheet">
+        <link href="common/styles.css" rel="stylesheet">
+
+        <style>
+#main-menu {
+  position: absolute;
+  left: 27px;
+  top: 80px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  transition: left 0.3s ease,
+              box-shadow 0.3s ease;
+  z-index: 999;
+  overflow: hidden;
+}
+
+            #map {
+                height: 330px;
+
+                width: 100%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+
+<style>.main-menu {
+  position: absolute;
+  left: 80px;
+  top: 80px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  transition: left 0.3s ease,
+              box-shadow 0.3s ease;
+  z-index: 999;
+  overflow: hidden;
+}</style>
+</head>
+<body>
+
+<header>
+        <div class="container">
+                <a href="index.html"><img src="images/logo-white.png" alt="Logo"></a><br/><a href="index.html"></a><br/>
+
+                <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+
+                <ul class="main-menu font-mountainsre" id="main-menu">
+                        <li><a href="logintambahdokter.html">TAMBAH DOKTOR</a></li>
+                        <li><a href="logintambahklinik.html">TAMBAH KLINIK</a></li>
+                        <li><a href="logintambahpasien.html">PENDAFTARAN PASIEN</a></li>
+                        <li><a href="loginpendaftaranantrian.html">PENDAFTARAN ANTRIAN</a></li>
+                        <li><a href="caripasien.html">CARI PASIEN</a></li>
+                        <li><a href="antrian.html">LIST ANTRIAN</a></li>
+                        <li><a href="dokter.html">DOKTER SPESIALIS</a></li>
+                        <li><a href="klinik.html">KLINIK</a></li>
+                        <li><a href="tentang.html">TENTANG KAMI</a></li>
+                </ul>
+                <div class="clearfix"></div>
+        </div><!-- container -->
+</header>
+
+
+<section class="bg-4 h-500x main-slider pos-relative">
+        <div class="triangle-up pos-bottom"></div>
+        <div class="container h-100">
+                <div class="dplay-tbl">
+                        <div class="dplay-tbl-cell center-text color-white pt-90">
+                                <h2><b>Informatika Health</b></h2>
+                                <h5><b>Sejarah berdirinya Rumah Sakit Informatika Health, di Jalan Kepuhsari Sleman, tidak terlepas dari sejarah perkembangan gereja Katolik di Yogyakarta. Pada tahun 1914 warta gembira Kerajaan Allah mulai dikenal oleh warga Yogyakarta dengan dimulainya pelajaran agama Katolik di rumah R.P. Himawidjaja (ayah Mgr. A. Djajasepoetro, SJ). Para misionaris bersama murid‑murid dari Xaverius College Muntilan dengan semangat merasulnya yang tinggi mampu membuat Yogyakarta sebagai daerah yang menarik untuk dikembangkan. Tahun 1917 berdirilah Standaart‑School sebagai lembaga pendidikan Katolik pertama di Yogyakarta. Seiring perjalanan waktu, lembaga pendidikan Katolik di Yogyakarta semakin berkembang.</b></h5>
+                                <!-- <h2 class="mt-30 mb-15">Tentang Kami</h2> -->
+                        </div><!-- dplay-tbl-cell -->
+                </div><!-- dplay-tbl -->
+        </div><!-- container -->
+</section>
+
+
+<section class="story-area left-text center-sm-text">
+        
+                         <div id="map"></div>
+                           <script>
+                                var map;
+                                var url = "http://202.94.83.190:8080/165314036RS/webresources/Location";
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.onreadystatechange = function () {
+                                    if (this.readyState == 4 && this.status == 200) {
+//                        document.getElementById("demo").innerHTML = this.responseText;
+
+                                        var obj = JSON.parse(this.responseText);
+                                        map = new google.maps.Map(document.getElementById('map'), {
+                                            center: {lat: obj[0].lat, lng: obj[0].lng},
+                                            zoom: 8
+                                        });
+                                        var marker = [];
+                                        for (var i = 0; i < obj.length; i++) {
+                                            marker[i] = new google.maps.Marker({position: {lat: obj[i].lat, lng: obj[i].lng}, map: map});
+                                        }
+                                    }
+                                };
+                                xhttp.open("GET", url, true);
+                                xhttp.send();
+                            </script>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+                            async defer></script>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+                            async defer></script>
+        
+</section>
+
+<footer class="pb-50  pt-70 pos-relative">
+        <div class="pos-top triangle-bottom"></div>
+        <div class="container-fluid">
+                <a href="index.html"><img src="images/logo-white.png" alt="Logo"></a>
+
+                <div class="pt-30">
+                        <p class="underline-secondary"><b>Address:</b></p>
+                        <p>Jl. Kepuhsari, Paingan, Maguwoharjo, Depok, Sleman, DIY</p>
+                </div>
+
+                <div class="pt-30">
+                        <p class="underline-secondary mb-10"><b>Phone:</b></p>
+                        <a href="tel:+628227318551 ">+628227318551</a>
+                </div>
+
+                <div class="pt-30">
+                        <p class="underline-secondary mb-10"><b>Email:</b></p>
+                        <a href="mailto:yaadit08@gmail.com"> yaadit08@gmail.com</a>
+                </div>
+
+
+                <p class="color-light font-9 mt-50 mt-sm-30"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Primandaru
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        </div><!-- container -->
+</footer>
+
+<!-- SCIPTS -->
+<script src="plugin-frameworks/jquery-3.2.1.min.js"></script>
+<script src="plugin-frameworks/bootstrap.min.js"></script>
+<script src="plugin-frameworks/swiper.js"></script>
+<script src="common/scripts.js"></script>
+</body>
+</html>

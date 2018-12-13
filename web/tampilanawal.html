@@ -18,43 +18,99 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
 
-<style>.main-menu {
-  position: absolute;
-  left: 27px;
-  top: 80px;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: visible;
-  transition: left 0.3s ease,
-              box-shadow 0.3s ease;
-  z-index: 999;
-  overflow: hidden;
-}</style>
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+
 </head>
 <body>
 
 <header>
         <div class="container">
-                <a href="index.html"><img src="images/logo-white.png" alt="Logo"></a><br/><a href="index.html"></a><br/>
+
+                <a class="logo" href="index.html"><img src="images/logo-white.png" alt="Logo"></a>
+
+                <div class="right-area">
+                        <h6><a class="plr-20 color-white btn-fill-primary" href="login.html">Login</a></h6>
+                </div><!-- right-area -->
 
                 <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
 
                 <ul class="main-menu font-mountainsre" id="main-menu">
-                        <li><a href="logintambahdokter.html">TAMBAH DOKTOR</a></li>
-                        <li><a href="logintambahklinik.html">TAMBAH KLINIK</a></li>
-                        <li><a href="logintambahpasien.html">PENDAFTARAN PASIEN</a></li>
-                        <li><a href="loginpendaftaranantrian.html">PENDAFTARAN ANTRIAN</a></li>
+                <li><a href="index.html">HOME</a></li>
                         <li><a href="caripasien.html">CARI PASIEN</a></li>
+                        <li><a href="pendaftaranantrian.html">PENDAFTARAN ANTRIAN</a></li>
+                        <li><a href="logintambahklinik.html">TAMBAH KLINIK</a></li>
+                        <li><a href="logintambahdokter.html">TAMBAH DOKTOR</a></li>
                         <li><a href="antrian.html">LIST ANTRIAN</a></li>
                         <li><a href="dokter.html">DOKTER SPESIALIS</a></li>
-                        <li><a href="klinik.html">KLINIK</a></li>
+                        <li><a href="klinik.html">KLINIK SPESIALIS</a></li>
                         <li><a href="tentang.html">TENTANG KAMI</a></li>
                 </ul>
+
                 <div class="clearfix"></div>
         </div><!-- container -->
 </header>
+
 
 <section class="bg-1 h-900x main-slider pos-relative">
         <!-- <div class="triangle-up pos-bottom"></div> -->
@@ -64,7 +120,7 @@
 
                                 <h5><b>BEST IN HEALTH</b></h5>
                                 <h1 class="mt-30 mb-15">Informatika Health</h1>
-                                <h5><a href="klinik.html" class="btn-primaryc plr-25"><b>Layanan Kami</b></a></h5>
+                                <h5><a href="login.html" class="btn-primaryc plr-25"><b>Layanan Kami</b></a></h5>
                         </div><!-- dplay-tbl-cell -->
                 </div><!-- dplay-tbl -->
         </div><!-- container -->

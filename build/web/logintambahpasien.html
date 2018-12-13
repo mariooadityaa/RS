@@ -16,10 +16,6 @@
         <link href="fonts/ionicons.css" rel="stylesheet">
         <link href="common/styles.css" rel="stylesheet">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 <style>.main-menu {
   position: absolute;
   left: 27px;
@@ -56,25 +52,64 @@
         </div><!-- container -->
 </header>
 
-<section class="bg-1 h-900x main-slider pos-relative">
-        <!-- <div class="triangle-up pos-bottom"></div> -->
+
+<section class="bg-8 h-500x main-slider pos-relative">
+        <div class="triangle-up pos-bottom"></div>
         <div class="container h-100">
                 <div class="dplay-tbl">
-                        <div class="dplay-tbl-cell center-text color-white">
-
-                                <h5><b>BEST IN HEALTH</b></h5>
-                                <h1 class="mt-30 mb-15">Informatika Health</h1>
-                                <h5><a href="klinik.html" class="btn-primaryc plr-25"><b>Layanan Kami</b></a></h5>
+                        <div class="dplay-tbl-cell center-text color-white pt-90">
+                                <h5><b>THE BEST IN HEALTH</b></h5>
+                                <h3 class="mt-30 mb-15">Login Tambah Pasien</h3>
                         </div><!-- dplay-tbl-cell -->
                 </div><!-- dplay-tbl -->
         </div><!-- container -->
 </section>
+</section class="pt-0">
 
-<!-- SCIPTS -->
-<script src="plugin-frameworks/jquery-3.2.1.min.js"></script>
-<script src="plugin-frameworks/bootstrap.min.js"></script>
-<script src="plugin-frameworks/swiper.js"></script>
-<script src="common/scripts.js"></script>
+        <div class="container">
+                <center>
+            <ol>
+              <li>
+                <br>
+                <label for="name">Username</label>
+                <input id="b" name="b" class="text" />
+              </li>
+              <li>
+                <label for="password">Password</label>
+                <input id="a" name="a" class="text" type="password"/>
+              </li>
+              <br>
+              <li>
+                <input type="button" onclick="loadDoc()" value="Login" />
+              </li>
+            </ol>
+            <script>
+                                function loadDoc() {
+                                    var email = b.value;
+                                    var pw = a.value;
+                                    var url = 'http://202.94.83.190:8080/165314036RS/webresources/User/login1?email=' + email + '&password=' + pw;
+                                    var xhttp = new XMLHttpRequest();
+                                    xhttp.onreadystatechange = function () {
+                                        if (this.readyState == 4 && this.status == 200) {
+                                            var user = JSON.parse(this.responseText);
+                                            if (user !== null) {
+                                                window.open("pendaftaranpasien.html", "_self");
+                                            } else {
+                                                alert("Login Gagal");
+                                            }
 
+                                            document.getElementById("demo").innerHTML =
+                                                    this.responseText;
+                                        }
+                                    };
+                                    xhttp.open("GET", url, true);
+                                    xhttp.send();
+                                }
+
+                            </script>
+
+            </center>
+        </div><!-- container-->
+</section><!-- radial-progress -->
 </body>
 </html>

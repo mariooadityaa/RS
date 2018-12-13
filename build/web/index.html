@@ -1,60 +1,80 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title></title>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <title>Informatika Health</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="background-color:#00BFFF;">
-        <form class="form">
-            <div class="form-group">
-                <p>
-                    <strong>Pencarian data pasien</strong>
 
-                    <br/>
-                </p>
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/beyond_the_mountains-webfont.css" type="text/css"/>
 
-                <div class="contact-form">
-                    <table>
-                        <tr><td>No Rekam Medis</td> <td>:</td> <td><input type="text" id="nrm"/> <button type="button" onclick="loadDoc()" id="btn">Cari</button></td></tr>
-                    </table>
+        <!-- Stylesheets -->
+        <link href="plugin-frameworks/bootstrap.min.css" rel="stylesheet">
+        <link href="plugin-frameworks/swiper.css" rel="stylesheet">
+        <link href="fonts/ionicons.css" rel="stylesheet">
+        <link href="common/styles.css" rel="stylesheet">
 
-                    <br/><br/><br/><h2><strong>Hasil Pencarian</strong></h2><br/>
-                    <table>
-                        <tr><td>Nama</td> <td>:</td> <td><input type="text" id="nama" value=""/></td>
-                        <tr><td>NIK</td> <td>:</td> <td><input type="text" id="nik" value=""/></td></tr>
-                        <tr><td>Alamat</td> <td>:</td> <td><input type="text" id="alamat" value=""/></td></tr>
-                        <tr><td>Tanggal Lahir</td> <td>:</td> <td><input type="text" id="tanggalLahir" value=""/></td></tr>
-                        <tr><td>Kelamin</td> <td>:</td><td><input type="text" id="kelamin" value=""/></td><tr>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                    </table>
-                   
-                    <script>
-                        function loadDoc() {
 
-                            var url = "http://202.94.83.190:8080/165314036RS/webresources/pasien/cariPasien?noRm=" + nrm.value;
-                            var xhttp = new XMLHttpRequest();
-                            xhttp.open("GET", url, true);
-                            xhttp.send();
-                            xhttp.onreadystatechange = function () {
-                                if (this.readyState == 4 && this.status == 200) {
-                                    var objj = JSON.parse(this.responseText);
-                                    document.getElementById("nama").value = objj.nama;
-                                    document.getElementById("nik").value = objj.nik;
-                                    document.getElementById("alamat").value = objj.alamat;
-                                    document.getElementById("tanggalLahir").value = objj.tanggalLahir;
-                                    document.getElementById("kelamin").value = objj.kelamin;
-                                }
-                            };
-                        }
-                    </script>
-                </div>
-            </div>
-        </form>
-    </body>
+<style>.main-menu {
+  position: absolute;
+  left: 27px;
+  top: 80px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  transition: left 0.3s ease,
+              box-shadow 0.3s ease;
+  z-index: 999;
+  overflow: hidden;
+}</style>
+</head>
+<body>
+
+<header>
+        <div class="container">
+                <a href="index.html"><img src="images/logo-white.png" alt="Logo"></a><br/><a href="index.html"></a><br/>
+
+                <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+
+                <ul class="main-menu font-mountainsre" id="main-menu">
+                        <li><a href="logintambahdokter.html">TAMBAH DOKTOR</a></li>
+                        <li><a href="logintambahklinik.html">TAMBAH KLINIK</a></li>
+                        <li><a href="logintambahpasien.html">PENDAFTARAN PASIEN</a></li>
+                        <li><a href="loginpendaftaranantrian.html">PENDAFTARAN ANTRIAN</a></li>
+                        <li><a href="caripasien.html">CARI PASIEN</a></li>
+                        <li><a href="antrian.html">LIST ANTRIAN</a></li>
+                        <li><a href="dokter.html">DOKTER SPESIALIS</a></li>
+                        <li><a href="klinik.html">KLINIK</a></li>
+                        <li><a href="tentang.html">TENTANG KAMI</a></li>
+                </ul>
+                <div class="clearfix"></div>
+        </div><!-- container -->
+</header>
+
+<section class="bg-1 h-900x main-slider pos-relative">
+        <!-- <div class="triangle-up pos-bottom"></div> -->
+        <div class="container h-100">
+                <div class="dplay-tbl">
+                        <div class="dplay-tbl-cell center-text color-white">
+
+                                <h5><b>BEST IN HEALTH</b></h5>
+                                <h1 class="mt-30 mb-15">Informatika Health</h1>
+                                <h5><a href="klinik.html" class="btn-primaryc plr-25"><b>Layanan Kami</b></a></h5>
+                        </div><!-- dplay-tbl-cell -->
+                </div><!-- dplay-tbl -->
+        </div><!-- container -->
+</section>
+
+<!-- SCIPTS -->
+<script src="plugin-frameworks/jquery-3.2.1.min.js"></script>
+<script src="plugin-frameworks/bootstrap.min.js"></script>
+<script src="plugin-frameworks/swiper.js"></script>
+<script src="common/scripts.js"></script>
+
+</body>
 </html>

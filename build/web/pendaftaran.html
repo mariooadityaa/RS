@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <title>Informatika Health</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/beyond_the_mountains-webfont.css" type="text/css"/>
+
+        <!-- Stylesheets -->
+        <link href="plugin-frameworks/bootstrap.min.css" rel="stylesheet">
+        <link href="plugin-frameworks/swiper.css" rel="stylesheet">
+        <link href="fonts/ionicons.css" rel="stylesheet">
+            <link href="common/styles.css" rel="stylesheet">
+<style>.main-menu {
+  position: absolute;
+  left: 27px;
+  top: 80px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  transition: left 0.3s ease,
+              box-shadow 0.3s ease;
+  z-index: 999;
+  overflow: hidden;
+}</style>
+</head>
+<body>
+
+<header>
+        <div class="container">
+                <a href="index.html"><img src="images/logo-white.png" alt="Logo"></a><br/><a href="index.html"></a><br/>
+
+                <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+
+                <ul class="main-menu font-mountainsre" id="main-menu">
+                        <li><a href="logintambahdokter.html">TAMBAH DOKTOR</a></li>
+                        <li><a href="logintambahklinik.html">TAMBAH KLINIK</a></li>
+                        <li><a href="logintambahpasien.html">PENDAFTARAN PASIEN</a></li>
+                        <li><a href="loginpendaftaranantrian.html">PENDAFTARAN ANTRIAN</a></li>
+                        <li><a href="caripasien.html">CARI PASIEN</a></li>
+                        <li><a href="antrian.html">LIST ANTRIAN</a></li>
+                        <li><a href="dokter.html">DOKTER SPESIALIS</a></li>
+                        <li><a href="klinik.html">KLINIK</a></li>
+                        <li><a href="tentang.html">TENTANG KAMI</a></li>
+                </ul>
+                <div class="clearfix"></div>
+        </div><!-- container -->
+</header>
+
+
+<section class="bg-8 h-500x main-slider pos-relative">
+        <div class="triangle-up pos-bottom"></div>
+        <div class="container h-100">
+                <div class="dplay-tbl">
+                        <div class="dplay-tbl-cell center-text color-white pt-90">
+                                <h5><b>THE BEST IN HEALTH</b></h5>
+                                <h3 class="mt-30 mb-15">Login Pendaftaran</h3>
+                        </div><!-- dplay-tbl-cell -->
+                </div><!-- dplay-tbl -->
+        </div><!-- container -->
+</section>
+</section class="pt-0">
+
+        <div class="container">
+        <center>
+                 <form onsubmit="return make_json(this);" method ="POST" id="leavereply">
+                                   <table><tr><td><label for="nik">NIK</label></td><td>
+                                    <input id="nik" name="nik" class="text" value="" /></td></tr>
+                                    <tr><td><label for="nama">Nama</label></td><td>
+                                    <input id="nama" name="nama" class="text" value=""/></td></tr>
+                                    <tr><td><label for="alamat">Alamat</label></td><td>
+                                    <input id="alamat" name="alamat" class="text" value="" /></td></tr>
+                                    <tr><td><label for="website">Tanggal Lahir</label></td><td>
+                                    <input id="tanggalLahir" name="tanggalLahir" class="text" type="date" value=""/></td></tr>
+                                    <tr><td><label for="message">kelamin</label></td><td>
+                                    <select id="kelamin" name="kelamin">
+                                        <option value="Pria">Pria</option>
+                                        <option value="Wanita">Wanita</option>
+                                    </select></td></tr></table> 
+                                    <br>
+                                    <input type="submit" value="Tambah"/>
+                                </li>
+                                <br>
+                            </ol>
+                        </form>
+                        <pre id="berhasil">
+                        </pre>
+                        <script>
+                            function make_json(form) {
+                                var json = {
+                                    "noRm": form.nik.value,
+                                    "nama": form.nama.value,
+                                    "alamat": form.alamat.value,
+                                    "nik": form.nik.value,
+                                    "tanggalLahir": form.tanggalLahir.value,
+                                    "kelamin": form.kelamin.value
+
+                                };
+                                var html = JSON.stringify(json, 0, 100);
+
+                                var Url = "http://202.94.83.190:8080/165314036RS/webresources/pasien/addPasien";
+                                var xhr = new XMLHttpRequest();
+                                xhr.open('POST', Url, false);
+                                xhr.setRequestHeader("Content-type", "application/json");
+                                xhr.send(html);
+
+                                document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
+                                return false;
+                            }
+
+                        </script> 
+                </center>
+        </div><!-- container-->
+</section><!-- radial-progress -->
+</body>
+</html>
